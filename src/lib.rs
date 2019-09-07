@@ -4,6 +4,26 @@ mod types; pub use self::types::*;
 mod system; pub use self::system::*;
 mod image; pub use self::image::*;
 
+pub mod advanc;
+pub mod bbox;
+pub mod bdf;
+pub mod bitmap;
+pub mod bzip2;
+pub mod cache;
+pub mod cid;
+pub mod color;
+pub mod driver;
+pub mod errors;
+pub mod fntfmt;
+pub mod gasp;
+pub mod glyph;
+pub mod gxval;
+pub mod gzip;
+pub mod increm;
+pub mod lcdfil;
+pub mod list;
+pub mod params;
+
 #[repr(C)] #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FT_Glyph_Metrics
 {
