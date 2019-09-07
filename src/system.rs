@@ -2,20 +2,13 @@
 
 use libc::*;
 
-/// A handle to a given memory manager object, defined with an [FT_MemoryRec] structure.
 pub type FT_Memory = *mut FT_MemoryRec_;
 
-/// A function used to allocate `size` bytes from `memory`.
 pub type FT_Alloc_Func = extern "system" fn(memory: FT_Memory, size: c_long) -> *mut c_void;
-
-/// A function used to release a given block of memory.
 pub type FT_Free_Func = extern "system" fn(memory: FT_Memory, block: *mut c_void);
-
-/// A function used to re-allocate a given block of memory.
 pub type FT_Realloc_Func = extern "system" fn(memory: FT_Memory,
 	cur_size: c_long, new_size: c_long, block: *mut c_void) -> *mut c_void;
 
-/// A structure used to describe a given memory manager to FreeType-2.
 #[repr(C)]
 pub struct FT_MemoryRec_
 {

@@ -4,44 +4,26 @@ mod types; pub use self::types::*;
 mod system; pub use self::system::*;
 mod image; pub use self::image::*;
 
-/// A structure to model the metrics of a single glyph.
-/// The values are expressed in 26.6 fractional pixel format; if the flag
-/// [FT_LOAD_NO_SCALE] has been used while loading the glyph, values are expressed in font units instead.
 #[repr(C)] #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FT_Glyph_Metrics
 {
-    /// The glyph's width.
     pub width: FT_Pos,
-    /// The glyph's height.
     pub height: FT_Pos,
-    /// Left side bearing for horizontal layout.
     pub horiBearingX: FT_Pos,
-    /// Top side bearing for horizontal layout.
     pub horiBearingY: FT_Pos,
-    /// Advance width for horizontal layout.
     pub horiAdvance: FT_Pos,
-    /// Left side bearing for vertical layout.
     pub vertBearingX: FT_Pos,
-    /// Top side bearing for vertical layout. Larger positive values mean further below the vertical glyph origin.
     pub vertBearingY: FT_Pos,
-    /// Advance height for vertical layout. Positive values mean the glyph has a positive advance downward.
     pub vertAdvance: FT_Pos
 }
 
-/// This structure models the metrics of a bitmap strike (i.e., a set of glyphs for a given point size
-/// and resolution) in a bitmap font. It is used for the `available_sizes` fields of [FT_Face].
 #[repr(C)] #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FT_Bitmap_Size
 {
-    /// The vertical distance, in pixels, between two consecutive baselines. It is always positive.
     pub height: FT_Short,
-    /// The average width, in pixels, of all glyphs in the strike.
     pub width: FT_Short,
-    /// The nominal size of the strike in 26.6 fractional points. This field is not very useful.
     pub size: FT_Pos,
-    /// The horizontal ppem (nominal width) in 26.6 fractional pixels.
     pub x_ppem: FT_Pos,
-    /// The vertical ppem (nominal height) in 26.6 fractional pixels.
     pub y_ppem: FT_Pos
 }
 
