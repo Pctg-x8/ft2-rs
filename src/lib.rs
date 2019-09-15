@@ -1,5 +1,4 @@
 #![allow(non_camel_case_types, non_snake_case, non_upper_case_globals)]
-#![link(name = "freetype")]
 
 mod types; pub use self::types::*;
 mod system; pub use self::system::*;
@@ -226,6 +225,7 @@ pub struct FT_GlyphSlotRec
     internal: *mut libc::c_void
 }
 
+#[link(name = "freetype")]
 extern "system"
 {
     pub fn FT_Init_FreeType(alibrary: *mut FT_Library) -> FT_Error;
