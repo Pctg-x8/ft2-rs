@@ -2,7 +2,7 @@
 use crate::*;
 use libc::*;
 
-extern "C"
+extern "system"
 {
 	pub fn FT_Outline_Decompose(outline: *mut FT_Outline, func_interface: *const FT_Outline_Funcs, user: *mut c_void)
 		-> FT_Error;
