@@ -22,6 +22,7 @@ pub mod gzip;
 pub mod increm;
 pub mod lcdfil;
 pub mod list;
+pub mod outline;
 pub mod params;
 
 #[repr(C)] #[derive(Debug, Clone, PartialEq, Eq)]
