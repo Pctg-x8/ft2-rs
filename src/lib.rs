@@ -348,7 +348,7 @@ pub const FT_KERNING_DEFAULT: FT_Kerning_Mode = 0;
 pub const FT_KERNING_UNFITTED: FT_Kerning_Mode = 1;
 pub const FT_KERNING_UNSCALED: FT_Kerning_Mode = 2;
 
-extern "system"
+extern "C"
 {
     pub fn FT_Get_Kerning(face: FT_Face, left_glyph: FT_UInt, right_glyph: FT_UInt, kern_mode: FT_UInt,
         akerning: *mut FT_Vector) -> FT_Error;
