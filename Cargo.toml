@@ -1,5 +1,5 @@
 [package]
-name = "ft2-rs"
+name = "freetype2"
 descriptions = "freetype2 api binding for Rustlang"
 version = "2.10.1"
 authors = ["S.Percentage <Syn.Tri.Naga@gmail.com>"]
