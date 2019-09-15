@@ -1,4 +1,5 @@
 #![allow(non_camel_case_types, non_snake_case, non_upper_case_globals)]
+#![link(name = "freetype")]
 
 mod types; pub use self::types::*;
 mod system; pub use self::system::*;
