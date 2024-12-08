@@ -142,8 +142,8 @@ pub struct FT_FaceRec {
     stream: FT_Stream,
     sizes_list: FT_ListRec,
     autohint: FT_Generic,
-    extensions: *mut libc::c_void,
-    internal: *mut libc::c_void,
+    extensions: *mut core::ffi::c_void,
+    internal: *mut core::ffi::c_void,
 }
 
 pub const FT_FACE_FLAG_SCALABLE: FT_Long = 1 << 0;
@@ -227,7 +227,7 @@ pub struct FT_SizeRec {
     pub face: FT_Face,
     pub generic: FT_Generic,
     pub metrics: FT_Size_Metrics,
-    internal: *mut libc::c_void,
+    internal: *mut core::ffi::c_void,
 }
 
 ExternOpaqueStruct!(pub struct FT_SubGlyphRec);
@@ -251,12 +251,12 @@ pub struct FT_GlyphSlotRec {
     pub outline: FT_Outline,
     pub num_subglyphs: FT_UInt,
     pub subglyphs: FT_SubGlyph,
-    pub control_data: *mut libc::c_void,
-    pub control_len: libc::c_long,
+    pub control_data: *mut core::ffi::c_void,
+    pub control_len: core::ffi::c_long,
     pub lsb_delta: FT_Pos,
     pub rsb_delta: FT_Pos,
-    pub other: *mut libc::c_void,
-    internal: *mut libc::c_void,
+    pub other: *mut core::ffi::c_void,
+    internal: *mut core::ffi::c_void,
 }
 
 #[link(name = "freetype")]
@@ -291,7 +291,7 @@ pub struct FT_Open_Args {
 extern "system" {
     pub fn FT_New_Face(
         library: FT_Library,
-        filepathname: *const libc::c_char,
+        filepathname: *const core::ffi::c_char,
         face_index: FT_Long,
         aface: *mut FT_Face,
     ) -> FT_Error;
@@ -308,7 +308,7 @@ extern "system" {
         face_index: FT_Long,
         aface: *mut FT_Face,
     ) -> FT_Error;
-    pub fn FT_Attach_File(face: FT_Face, filepathname: *const libc::c_char) -> FT_Error;
+    pub fn FT_Attach_File(face: FT_Face, filepathname: *const core::ffi::c_char) -> FT_Error;
     pub fn FT_Attach_Stream(face: FT_Face, parameters: *mut FT_Open_Args) -> FT_Error;
     pub fn FT_Reference_Face(face: FT_Face) -> FT_Error;
     pub fn FT_Done_Face(face: FT_Face) -> FT_Error;
@@ -423,7 +423,7 @@ extern "system" {
         buffer: FT_Pointer,
         buffer_max: FT_UInt,
     ) -> FT_Error;
-    pub fn FT_Get_Postscript_Name(face: FT_Face) -> *const libc::c_char;
+    pub fn FT_Get_Postscript_Name(face: FT_Face) -> *const core::ffi::c_char;
     pub fn FT_Select_Charmap(face: FT_Face, encoding: FT_Encoding) -> FT_Error;
     pub fn FT_Set_Charmap(face: FT_Face, charmap: FT_CharMap) -> FT_Error;
     pub fn FT_Get_Charmap_Index(charmap: FT_CharMap) -> FT_Int;

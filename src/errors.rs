@@ -1,4 +1,3 @@
-
 use crate::*;
 
 pub const FT_Err_Ok: FT_Error = 0;
@@ -105,7 +104,6 @@ pub const FT_Err_Bbx_Too_Big: FT_Error = 0xB8;
 pub const FT_Err_Corrupted_Font_Header: FT_Error = 0xB9;
 pub const FT_Err_Corrupted_Font_Glyphs: FT_Error = 0xBA;
 
-extern "system"
-{
-	pub fn FT_Error_String(error_code: FT_Error) -> *const libc::c_char;
+extern "system" {
+    pub fn FT_Error_String(error_code: FT_Error) -> *const core::ffi::c_char;
 }
