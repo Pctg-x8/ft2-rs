@@ -36,6 +36,7 @@ pub mod gzip;
 pub mod increm;
 pub mod lcdfil;
 pub mod list;
+pub mod modapi;
 pub mod outline;
 pub mod params;
 
